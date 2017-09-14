@@ -28,8 +28,8 @@ public class MamaCareDaoImpl implements MamaCareDao {
 	}
 
 	@Override
-	public void saveWoman(Woman woman) {
-		database.saveWoman(woman);
+	public List<Woman> saveWoman(Woman woman) {
+		return database.saveWoman(woman);
 		
 	}
 

@@ -17,11 +17,13 @@ import android.content.Context;
  *
  */
 public class MamaCareServiceImpl implements MamaCareService {
+	@SuppressWarnings("unused")
 	private Context context;
-	private MamaCareDao mamaCareDao = new MamaCareDaoImpl(context);
+	private MamaCareDao mamaCareDao;
 
 	public MamaCareServiceImpl(Context context) {
 		this.context = context;
+		mamaCareDao = new MamaCareDaoImpl(context);
 	}
 	
 	@Override
@@ -30,8 +32,8 @@ public class MamaCareServiceImpl implements MamaCareService {
 	}
 
 	@Override
-	public void saveWoman(Woman woman) {
-		mamaCareDao.saveWoman(woman);
+	public List<Woman> saveWoman(Woman woman) {
+		return mamaCareDao.saveWoman(woman);
 
 	}
 

@@ -84,7 +84,16 @@ public class Database extends SQLiteOpenHelper {
 	public List<Woman> getWomen() {
 		// Array to hold the women objects
 		List<Woman> womenList = new ArrayList<Woman>();
-		// SQL query to select all the women from the DB
+		
+		womenList.add(new Woman(1, "Catherine", "Kabahuma", 22, "Nakawa"));
+		womenList.add(new Woman(1, "Glorious", "Orishaba", 28, "Gayaza"));
+		womenList.add(new Woman(1, "Irene", "Yankee", 25, "Bukoto"));
+		womenList.add(new Woman(1, "Patience", "Akunda", 18, "Bwaise"));
+		womenList.add(new Woman(1, "Mpiima", "Moreen", 35, "Ntinda"));
+		
+		
+		
+		/*// SQL query to select all the women from the DB
 		String selectQuery = "SELECT * FROM " + tableWoman;
 
 		SQLiteDatabase db = this.getReadableDatabase();
@@ -102,16 +111,7 @@ public class Database extends SQLiteOpenHelper {
 				String selectVisitQuery = "SELECT * FROM " + tableVisit + " WHERE " + tableVisitColumnWomanId + " = "
 						+ womanId;
 				Cursor visitCursor = db.rawQuery(selectVisitQuery, null);
-				List<Visit> womanVisitList = new ArrayList<Visit>();// Array to
-																	// hold all
-																	// the
-																	// visits of
-																	// a
-																	// particular
-																	// woman
-
-				// Loop through and get all the visits attached to a specific
-				// woman
+				List<Visit> womanVisitList = new ArrayList<Visit>();
 				if (visitCursor.moveToFirst()) {
 					do {
 						Visit visit = new Visit(visitCursor.getInt(visitCursor.getColumnIndex(tableVisitColumnId)),
@@ -135,7 +135,7 @@ public class Database extends SQLiteOpenHelper {
 				womenList.add(woman);
 			} while (cursor.moveToNext());// Keeps looping until last item in
 											// the table
-		}
+		}*/
 		// Sort the women using the comparable method we defined in the women
 		// POJO
 		Collections.sort(womenList);
@@ -262,7 +262,7 @@ public class Database extends SQLiteOpenHelper {
 		return null;
 	}
 
-	public void saveWoman(Woman woman) {
+	public List<Woman> saveWoman(Woman woman) {
 		SQLiteDatabase db = this.getWritableDatabase();
 
 		ContentValues contentValues = new ContentValues();
@@ -273,6 +273,9 @@ public class Database extends SQLiteOpenHelper {
 		contentValues.put(tableWomanColumnAddress, woman.getAddress());
 
 		db.update(tableWoman, contentValues, null, null);
+		
+		List<Woman> women = getWomen();
+		return women;
 	}
 
 	public Visit getVisitByType(String visitType, int womanId) {
@@ -308,19 +311,27 @@ public class Database extends SQLiteOpenHelper {
 	}
 
 	public User getUser(String username, String password) {
-		SQLiteDatabase db = this.getReadableDatabase();
-
-		String selectQuery = "SELECT * FROM " + tableUser + " WHERE " + tableUserColumnUsername + " = '" + username
+		
+		if(username.equalsIgnoreCase("admin") && password.equalsIgnoreCase("123")){
+			return new User(1, username, password);
+			
+			//TODO  -  Add DB code to retrieve user
+			/*SQLiteDatabase db = this.getReadableDatabase();
+			
+					String selectQuery = "SELECT * FROM " + tableUser + " WHERE " + tableUserColumnUsername + " = '" + username
 				+ "' AND " + tableUserColumnPassword + " = '" + password + "'";
-
-		Cursor cursor = db.rawQuery(selectQuery, null);
-		if (cursor != null && cursor.moveToFirst()) {
-			User user = new User(cursor.getInt(cursor.getColumnIndex(tableUserColumnId)),
-					cursor.getString(cursor.getColumnIndex(tableUserColumnUsername)),
-					cursor.getString(cursor.getColumnIndex(tableUserColumnPassword)));
-			return user;
+								Cursor cursor = db.rawQuery(selectQuery, null);
+				if (cursor != null && cursor.moveToFirst()) {
+						User user = new User(cursor.getInt(cursor.getColumnIndex(tableUserColumnId)),
+								cursor.getString(cursor.getColumnIndex(tableUserColumnUsername)),
+								cursor.getString(cursor.getColumnIndex(tableUserColumnPassword)));
+						return user;
+				}
+			return null;*/
+		}else{
+			return null;
 		}
-		return null;
+
 	}
 
 	public void saveUser(User user) {

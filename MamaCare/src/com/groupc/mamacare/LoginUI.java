@@ -1,45 +1,103 @@
 package com.groupc.mamacare;
 
-import android.annotation.SuppressLint;
+import com.groupc.mamacare.model.User;
+import com.groupc.mamacare.service.UserService;
+import com.groupc.mamacare.service.impl.UserServiceImpl;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 /**
- * This is the main launcher for the mamacare mobile application.
- *
- * @author jmpango
+ * This is the class responsible for starting up the application
  * @author ckabahuma
- * @author gorishaba
  *
  */
-@SuppressLint("NewApi")
-@SuppressWarnings("deprecation")
-public class LoginUI extends ActionBarActivity {
+public class LoginUI extends ActionBarActivity implements View.OnClickListener {
+	
+	    private EditText textInputEditTextUserName;
+	    private EditText textInputEditTextPassword;
 
+	    private Button btnSignIn;
+	    
+	    private UserService userService;
+	    
+	    private User loginUser;
+	    
+
+	    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login_ui);
+		
+		userService = new UserServiceImpl(getApplicationContext());
+		//Start the login Page
+		initLoginUI();
 	}
 
+	private void initLoginUI() {
+		textInputEditTextUserName = (EditText) findViewById(R.id.editTextUserName);
+        textInputEditTextPassword = (EditText) findViewById(R.id.editTextPassword);
+ 
+        btnSignIn = (Button) findViewById(R.id.buttonSignIn);
+        
+     // Set OnClick Listener on SignUp button 
+        btnSignIn.setOnClickListener(new View.OnClickListener() {
+		public void onClick(View v) {
+			//Get user entered text
+			String userName=textInputEditTextUserName.getText().toString();
+			String password=textInputEditTextPassword.getText().toString();
+			
+			if(textInputEditTextPassword == null || textInputEditTextUserName == null){
+				showMessageToUserLong("Please fill in both Username and Password!");
+			}else{
+				loginUser = userService.getUser(userName, password);
+				if(loginUser == null){
+					showMessageToUserLong("Invalid Username or Password!");
+				}else{
+					showMessageToUserLong("Congrats: Login Successfull");
+					
+					// Display the MamaCare dashboard
+					startActivity(new Intent(getApplicationContext(), DashboardUI.class));
+				}
+			}
+ 
+			}
+
+		});
+ 
+	}
+
+	
+	private void showMessageToUserLong(String message) {
+		Toast.makeText(LoginUI.this, message, Toast.LENGTH_LONG).show();
+	}
+	
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.login_ui, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onClick(View arg0) {
+		
 	}
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="list_item_title">#363636</color>
+    <color name="list_background">#e8e8e8</color>
+    <color name="list_background_pressed">#F2F1DC</color>
+    <color name="list_divider">#D6D6D6</color>
+    <color name="counter_text_bg">#626262</color>
+    <color name="counter_text_color">#c5c4c4</color>
+    <color name="textbox_color">#636769</color>
+    <color name="black">#000000</color>
+
+    <drawable name="highlight_pressed">#98dff3</drawable>
+    <drawable name="highlight_focused">#b9e6f3</drawable>
+    <drawable name="cbchk_blue">#b9e6f3</drawable>
+    <drawable name="cbunchk_blue">#636769</drawable>
+    <drawable name="cbchk_red">#8A0017</drawable>
+    
+    <drawable name="actionbar_background">#B83939</drawable>
+    <drawable name="actionbar_text">#FFFFFF</drawable>
+    
+
+</resources>

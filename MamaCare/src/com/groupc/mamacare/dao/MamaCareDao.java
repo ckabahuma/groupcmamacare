@@ -12,7 +12,7 @@ import com.groupc.mamacare.model.Woman;
  */
 public interface MamaCareDao {
 	public List<Woman> getWomen();
-	public void saveWoman(Woman woman);
+	public List<Woman> saveWoman(Woman woman);
 	public void deleteWoman(int id);
 	public Woman editWoman(Woman woman);
 	public void saveVisit(Visit visit);
