@@ -93,21 +93,16 @@ public class Database extends SQLiteOpenHelper {
 		
 		
 		
-		/*// SQL query to select all the women from the DB
+		// SQL query to select all the women from the DB
 		String selectQuery = "SELECT * FROM " + tableWoman;
 
 		SQLiteDatabase db = this.getReadableDatabase();
 		Cursor cursor = db.rawQuery(selectQuery, null);
 
-		// Read from the DB all the women rows
 		if (cursor.moveToFirst()) {
 			do {
 
-				// Get the id for a specific woman to be used to retrieve the
-				// visit objects
 				int womanId = cursor.getInt(cursor.getColumnIndex(tableWomanColumnId));
-
-				// for each woman we retrieve all the visits attached
 				String selectVisitQuery = "SELECT * FROM " + tableVisit + " WHERE " + tableVisitColumnWomanId + " = "
 						+ womanId;
 				Cursor visitCursor = db.rawQuery(selectVisitQuery, null);
@@ -125,21 +120,16 @@ public class Database extends SQLiteOpenHelper {
 					} while (visitCursor.moveToNext());
 				}
 
-				// populate the woman object
 				Woman woman = new Woman(womanId, cursor.getString(cursor.getColumnIndex(tableWomanColumnFirstName)),
 						cursor.getString(cursor.getColumnIndex(tableWomanColumnLastName)),
 						cursor.getInt(cursor.getColumnIndex(tableWomanColumnAge)),
 						cursor.getString(cursor.getColumnIndex(tableWomanColumnAddress)), womanVisitList);
 
-				// Add each woman retrieved from the DB into our arrayList
 				womenList.add(woman);
-			} while (cursor.moveToNext());// Keeps looping until last item in
-											// the table
-		}*/
-		// Sort the women using the comparable method we defined in the women
-		// POJO
+			} while (cursor.moveToNext());
+		}
+
 		Collections.sort(womenList);
-		// Return the womenList
 		return womenList;
 	}
 

@@ -91,6 +91,7 @@ public class DashboardUI  extends Activity{
 	 */
 	private class RefreshButtonClickListner implements View.OnClickListener {
 
+		@SuppressWarnings("deprecation")
 		@Override
 		public void onClick(View v) {
 			//Retrieve all the women in the database.
