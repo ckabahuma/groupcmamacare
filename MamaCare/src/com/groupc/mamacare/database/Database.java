@@ -27,6 +27,7 @@ public class Database extends SQLiteOpenHelper {
 	/* Database name for the application */
 	private static final String dbName = "mamacare";
 	private static final int dbVersion = 1;
+         // orishaba glorious this is the services offered
 
 	/* Woman table structure */
 	private static final String tableWoman = "woman";
