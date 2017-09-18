@@ -10,6 +10,7 @@ import java.io.Serializable;
 public class User implements Serializable, Comparable<User>{
 
 	private static final long serialVersionUID = 1L;
+        //this is a user name
 	private String username;
 	private String password;
 	private int id;
