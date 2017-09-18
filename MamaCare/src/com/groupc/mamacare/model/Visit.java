@@ -13,6 +13,7 @@ public class Visit implements Serializable, Comparable<Visit>{
 	private static final long serialVersionUID = 1L;
 	private int id;
 	private String visitType;
+        // this is a visiting day
 	private Date visitDate;
 	private int isVacinated;
 	private int womanId;
