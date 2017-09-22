@@ -10,17 +10,21 @@ College of Computing & Information Technology
 
 
 PRACTICAL PROJECT I 
+
 MOBILE PLATFORMS & ARCHITECTURES REPORT
 
 
-Introduction
+Introduction:
+
 This report is a documentation of the design and development of the MamaCare Mobile Application. It explains the architecture and design pattern; textual requirement specifications; the design and overview of the application; and lastly the test cases.
 
-Architecture and Design Pattern/Framework
+Architecture and Design Pattern/Framework:
+
 The architecture of the MamaCare mobile application is interaction-oriented in the sense that ease of interaction with the application by the user is of greater importance than the complex nature of the underlying technology or coding. 
 It has been built based on the Model View Controller (MVC) design pattern, as it’s the most suitable style for enabling display of multiple user views using the same database. 
 
-Use Cases (Textual Requirements Specifications)
+Use Cases (Textual Requirements Specifications):
+
 The use cases or textual requirements specification for the MamaCare mobile application include;
 
 Data Entry for a New Case: 
@@ -34,25 +38,29 @@ Updating a Case:
 2. Logs into his or her account using assigned username and password (access credentials)
 3. Search for existing case (pregnant woman)
 4. View previous data entered (in the Registration Form) and update if necessary 
-6. Save the case (pregnant woman) data.
+5. Save the case (pregnant woman) data.
 
 Closing a Case:
-CHW opens MamaCare App
-1. Logs into his or her account using assigned username and password (access credentials).
-2. Search for existing case (pregnant woman).
-3. View previous data entered (in the Registration & Home Visit Forms) and update if necessary.
-4. Open the Pregnancy Outcome Form and enter additional necessary information
-5. Save the case data.
-6. Remove the case or pregnant woman
+1. CHW opens MamaCare App
+2. Logs into his or her account using assigned username and password (access credentials).
+3. Search for existing case (pregnant woman).
+4. View previous data entered (in the Registration & Home Visit Forms) and update if necessary.
+5. Open the Pregnancy Outcome Form and enter additional necessary information
+6. Save the case data.
+7. Remove the case or pregnant woman
 
 
-MamaCare Mobile Application Overview
-MamaCare is a mobile-based application built on the Android platform for Community Health Workers (CHWs) to help monitor or track the health status of pregnant women from the time they conceive up to when they give birth or deliver. A Community Health Worker (CMW) starts by logging into his/her account in order to have access to the app’s functionality or features such as;
+MamaCare Mobile Application Overview:
+
+MamaCare is a mobile-based application built on the Android platform for Community Health Workers (CHWs) to help monitor or track the health status of pregnant women from the time they conceive up to when they give birth or deliver. 
+A Community Health Worker (CMW) starts by logging into his/her account in order to have access to the app’s functionality or features such as;
+
 1. Viewing existing/enrolled pregnant women on a dashboard; 
 2. Registration of a new pregnant woman; 
 3. Selecting a pregnant woman, viewing her visit status and updating additional information collected during visit.
 
-Test Cases - Developed
+Test Cases - Developed:
+
 1.(CMW) starts by logging into his/her account
 
 2.Views Dashboard
