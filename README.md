@@ -77,4 +77,18 @@ Through the specific woman dashboard, the user will be able to add, view, edit a
 5.Recording and completing visits
 The user will be able to register the visit and the vaccine administered.
 
+Development Environment:
+
+The group members are using Android studio and eclipse as the development platform for MamaCare.
+
+Group C GitHub Account:
+
+LINK:
+
+https://github.com/kabahuma91/groupcmamacare
+
+
+
+
+
 
